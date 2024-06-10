@@ -9,6 +9,9 @@ public class AddPrescriptionDTO
     public DateTime Date { get; set; }
     [Required]
     public DateTime DueDate { get; set; }
-    public Patient Patient { get; set; }
-    
+    public int IdDoctor { get; set; }
+    public AddPatientDTO Patient { get; set; }
+    [Required]
+    [MaxLength(10)]
+    public List<AddMedicamentDTO> Medicaments { get; set; }
 }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IPrescritionService, PrescriptionService>();
 builder.Services.AddDbContext<ApplicationContext>(
     options => options.UseSqlServer("Name=ConnectionStrings:Default"));
 
